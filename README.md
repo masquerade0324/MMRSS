@@ -6,3 +6,4 @@ We will make this software with Java.
 
 ゲラゲラゲラ
 
+がんばろう！
