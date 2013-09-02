@@ -26,6 +26,7 @@ public class Main extends Application {
 		String gigazine = "http://feed.rssad.jp/rss/gigazine/rss_2.0";
 		ArticlesBuilder articlesBuilder = new ArticlesBuilder();
 		ArrayList<Article> articleList = articlesBuilder.parseRSS(gigazine);
+		articleList.addAll(articlesBuilder.parseRSS(endadget));
 		for (Article article: articleList) {
 			System.out.println(article);
 		}

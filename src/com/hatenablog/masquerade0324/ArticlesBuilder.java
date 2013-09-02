@@ -18,7 +18,6 @@ public class ArticlesBuilder {
 		
 	}
 	
-	
 	public ArrayList<Article> parseRSS(String url) {
 		ArrayList<Article> articles = new ArrayList<Article>();
 		
