@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -12,23 +13,27 @@ import javafx.scene.layout.GridPane;
  * @author meteorakey
  * 記事の一覧を表示するパネル
  */
-public class ArticlesPanel extends GridPane {
+public class ArticlesPanel extends ScrollPane {
 
-	ArrayList<ArticleView> articleList = new ArrayList<ArticleView>();
-
-	ArticlesPanel() {
-		this.setWidth(680);
-		this.setHeight(600);
-		this.setMaxWidth(680);
-		this.setMaxHeight(600);
-		this.setVgap(40);
-		this.setHgap(40);
-		this.setAlignment(Pos.TOP_CENTER);
+	private ArrayList<ArticleView> articleList = new ArrayList<ArticleView>();
+	private GridPane articlesPane = new GridPane();
+	private static final int WIDTH = 800;
+	private static final int HEIGHT = 600;
+	
+	public ArticlesPanel() {
+		// スクロールバーの設定
+		this.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+		this.setContent(articlesPane);
+				
+		// 記事リストを表示するパネル設定
+		articlesPane.setVgap(40);
+		articlesPane.setHgap(40);
+		articlesPane.setAlignment(Pos.CENTER);
 		
 		int row = 0;
-		for (int i = 0; i < 8; i++) {
-			ArticleView aView = new ArticleView();
-			this.add(aView, i % 2, row);
+		for (int i = 0; i < 12; i++) {
+			ArticleView articleView = new ArticleView();
+			articlesPane.add(articleView, i % 2, row);
 			if (i % 2 == 1) row++;  
 		}
 	}

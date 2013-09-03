@@ -9,17 +9,20 @@ import javafx.scene.paint.Color;
 public class ArticleView extends Pane {
 
 	private Article article;
+	private static final int WIDTH = 340;
+	private static final int HEIGHT = 200;
+	
 	
 	ArticleView() {
 		// パネルサイズ設定
-		this.setWidth(340);
-		this.setHeight(200);
-		this.setMaxWidth(340);
-		this.setMaxHeight(200);
+		this.setWidth(WIDTH);
+		this.setHeight(HEIGHT);
+		this.setMaxSize(WIDTH, HEIGHT);
 		
 		// Title設定
 		TextArea title = new TextArea("Article");
-		title.setMaxWidth(340);
+		title.setMaxWidth(WIDTH);
+		title.setEditable(false);
 		this.getChildren().add(title);
 		
 		// URL

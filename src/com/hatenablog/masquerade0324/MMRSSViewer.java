@@ -1,7 +1,9 @@
 package com.hatenablog.masquerade0324;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
@@ -11,17 +13,30 @@ import javafx.stage.Stage;
 
 public class MMRSSViewer extends Application{
 
-	ArticlesPanel panel = new ArticlesPanel();
+	ArticlesPanel articlesPanel = new ArticlesPanel();
+	private static final int WIDTH = 800;
+	private static final int HEIGHT = 600;
 	
 	@Override
 	public void start(Stage stage) { // シーングラフを構築
-		Scene panelScene = new Scene(panel);
-		stage.setScene(panelScene);
+/*
+ 		// シーングラフのルートを構成予定
+		HBox root = new HBox();
+		root.setPrefSize(WIDTH, HEIGHT);
+		root.setMaxSize(WIDTH, HEIGHT);
+		root.setAlignment(Pos.TOP_CENTER);
+		Button button = new Button();
+		root.getChildren().add(button);
+		root.getChildren().add(articlesPanel);
+*/
+		Scene scene = new Scene(articlesPanel);
+		stage.setScene(scene);
 		
 		// ウィンドウのタイトルとサイズを決定
 		stage.setTitle("MMRSS");
-		stage.setWidth(800);
-		stage.setHeight(600);
+		stage.setWidth(WIDTH);
+		stage.setHeight(HEIGHT);
+		stage.setResizable(false);
 		stage.show();
 	}
 
