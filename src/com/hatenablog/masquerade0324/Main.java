@@ -1,7 +1,5 @@
 package com.hatenablog.masquerade0324;
 
-import java.util.ArrayList;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -24,11 +22,12 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		String endadget = "http://feed.rssad.jp/rss/engadget/rss";
 		String gigazine = "http://feed.rssad.jp/rss/gigazine/rss_2.0";
-		ArticlesBuilder articlesBuilder = new ArticlesBuilder();
-		ArrayList<Article> articleList = articlesBuilder.parseRSS(gigazine);
-		for (Article article: articleList) {
-			System.out.println(article);
-		}
+		
+		ArticlesManager manager = new ArticlesManager();
+		manager.registerSite(endadget);
+		manager.registerSite(gigazine);
+		manager.execute();
+		
 		launch(args);
 	}
 }

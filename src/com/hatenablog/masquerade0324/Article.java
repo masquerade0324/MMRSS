@@ -78,6 +78,6 @@ public class Article {
 	@Override
 	public String toString() {
 		return "記事のタイトル：" + title + "\n記事のURL：" + link + 
-				"\n記事の説明：" + description + "\n記事の発行日時：" + date + "\n";
+				"\n記事の説明：" + description + "\n記事の発行日時：" + date;
 	}
 }
