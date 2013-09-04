@@ -30,7 +30,7 @@ public class ArticlesPanel extends ScrollPane implements ArticleObserver {
 	}
 
 	public void update(ArticlesManager articleManager) {
-		//this.getChildren().clear();
+		articlesPane.getChildren().clear();
 		System.out.println("panel update.");
 		this.articleList = articleManager.getAllArticles();
 		int row = 0;
