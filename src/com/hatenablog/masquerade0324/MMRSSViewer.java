@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -37,6 +39,8 @@ public class MMRSSViewer extends Application{
 		stage.setWidth(WIDTH);
 		stage.setHeight(HEIGHT);
 		stage.setResizable(false);
+		stage.setX(0);
+		stage.setY(0);
 		stage.show();
 	}
 
