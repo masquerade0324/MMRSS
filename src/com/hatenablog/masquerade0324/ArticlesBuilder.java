@@ -12,11 +12,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 public class ArticlesBuilder {
-	ArticlesManager articleManeger;
-	
-	ArticlesBuilder() {
-		
-	}
 	
 	public ArrayList<Article> parseRSS(String url) {
 		ArrayList<Article> articles = new ArrayList<Article>();

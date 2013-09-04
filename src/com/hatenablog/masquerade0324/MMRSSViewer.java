@@ -1,36 +1,26 @@
 package com.hatenablog.masquerade0324;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class MMRSSViewer extends Application{
+public class MMRSSViewer extends Application {
 
-	ArticlesPanel articlesPanel = new ArticlesPanel();
+	private ArticlesPanel articlesPanel = new ArticlesPanel();
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
 	
+	public ArticlesPanel getArticlesPanel() {
+		return articlesPanel;
+	}
+
+	public void setArticlesPanel(ArticlesPanel articlesPanel) {
+		this.articlesPanel = articlesPanel;
+	}
+
 	@Override
-	public void start(Stage stage) { // シーングラフを構築
-/*
- 		// シーングラフのルートを構成予定
-		HBox root = new HBox();
-		root.setPrefSize(WIDTH, HEIGHT);
-		root.setMaxSize(WIDTH, HEIGHT);
-		root.setAlignment(Pos.TOP_CENTER);
-		Button button = new Button();
-		root.getChildren().add(button);
-		root.getChildren().add(articlesPanel);
-*/
+	public void start(Stage stage) {
+		// ArticlesPanelの設定
 		Scene scene = new Scene(articlesPanel);
 		stage.setScene(scene);
 		
@@ -42,6 +32,13 @@ public class MMRSSViewer extends Application{
 		stage.setX(0);
 		stage.setY(0);
 		stage.show();
+		
+		System.out.println("Aplication start.");
+		
+		ArticlesManager manager = new ArticlesManager();
+		manager.setArticleObserver(this.getArticlesPanel());
+		manager.registerSite("http://feed.rssad.jp/rss/gigazine/rss_2.0");
+		manager.execute();
 	}
 
 	@Override
@@ -50,9 +47,8 @@ public class MMRSSViewer extends Application{
 	}
 
 
-	public void run(String[] args) {
-		launch(args);
+	public void run() {
+		launch();
 
 	}
-
 }

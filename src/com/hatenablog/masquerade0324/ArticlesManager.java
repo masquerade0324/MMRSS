@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ArticlesManager {
 	private ArrayList<String> siteNames = new ArrayList<String>();
 	private ArrayList<Article> articleList = new ArrayList<Article>();
-	private ArticleObserver articleObserver = new ArticleObserver();
+	private ArticleObserver articleObserver;
 	
 	public ArrayList<Article> getArticles(String site) {
 		ArrayList<Article> articles = new ArrayList<Article>();
@@ -37,4 +37,14 @@ public class ArticlesManager {
 		}
 		articleObserver.update(this);
 	}
+
+	public ArticleObserver getArticleObserver() {
+		return articleObserver;
+	}
+
+	public void setArticleObserver(ArticleObserver articleObserver) {
+		this.articleObserver = articleObserver;
+	}
+	
+	
 }
