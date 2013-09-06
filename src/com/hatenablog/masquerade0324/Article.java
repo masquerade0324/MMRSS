@@ -1,8 +1,11 @@
 package com.hatenablog.masquerade0324;
 
+import java.util.Calendar;
+
 public class Article {
 	private String title;
 	private String date;
+	private Calendar cal;
 	private String link;
 	private String description;
 	private String image;
@@ -19,6 +22,19 @@ public class Article {
 		marked = false;
 	}
 	
+	public void setDateFromCal() {
+		this.date = cal.get(Calendar.YEAR) + "年" + (cal.get(Calendar.MONTH) + 1) + "月"
+				+ cal.get(Calendar.DATE) + "日" + cal.get(Calendar.HOUR_OF_DAY) + "時" + cal.get(Calendar.MINUTE) + "分";
+	}
+	
+	public Calendar getCal() {
+		return cal;
+	}
+
+	public void setCal(Calendar dateCal) {
+		this.cal = dateCal;
+	}
+
 	public String getTitle() {
 		return title;
 	}

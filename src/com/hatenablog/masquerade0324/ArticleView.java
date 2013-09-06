@@ -9,7 +9,6 @@ public class ArticleView extends Pane {
 	private static final int WIDTH = 340;
 	private static final int HEIGHT = 200;
 
-
 	public ArticleView(Article article) {
 		this.article = article;
 		// パネルサイズ設定
@@ -18,7 +17,7 @@ public class ArticleView extends Pane {
 		this.setMaxSize(WIDTH, HEIGHT);
 
 		// Title設定
-		TextArea title = new TextArea(this.article.getTitle());
+		TextArea title = new TextArea(this.article.getTitle() + "\n\n" + this.article.getDate());
 		title.setMaxWidth(WIDTH);
 		title.setEditable(false);
 		title.setWrapText(true);
