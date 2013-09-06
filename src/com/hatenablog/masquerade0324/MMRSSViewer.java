@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 public class MMRSSViewer extends Application {
 
 	private ArticlesPanel articlesPanel = new ArticlesPanel();
-	private static final int WIDTH = 800;
-	private static final int HEIGHT = 600;
+	private static final int WIDTH = 1200;
+	private static final int HEIGHT = 900;
 	
 	public ArticlesPanel getArticlesPanel() {
 		return articlesPanel;
@@ -24,7 +24,7 @@ public class MMRSSViewer extends Application {
 		Scene scene = new Scene(articlesPanel);
 		stage.setScene(scene);
 		
-		// ウィンドウのタイトルとサイズを決定
+		// Stageのタイトルとサイズを決定
 		stage.setTitle("MMRSS");
 		stage.setWidth(WIDTH);
 		stage.setHeight(HEIGHT);
@@ -32,7 +32,6 @@ public class MMRSSViewer extends Application {
 		stage.setX(0);
 		stage.setY(0);
 		stage.show();
-		
 		System.out.println("Aplication start.");
 		
 		ArticlesManager manager = new ArticlesManager();
@@ -45,10 +44,7 @@ public class MMRSSViewer extends Application {
 	public void stop() { // 終了時に呼び出し
 		System.out.println("Application Ended.");
 	}
-
-
 	public void run() {
 		launch();
-
 	}
 }
