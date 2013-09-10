@@ -2,21 +2,30 @@ package com.hatenablog.masquerade0324;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 //TODO どのクラスを継承するか確定
-public class ArticleView extends VBox {
+public class ArticleView extends Pane {
 
 	private Article article;
 	private static final double WIDTH = 320;
@@ -31,15 +40,20 @@ public class ArticleView extends VBox {
 		this.article = article;
 		//TODO 全体のレイアウト確定
 		// パネルサイズ設定1
+		this.setId("article-view");
 		this.setMaxSize(WIDTH, HEIGHT);
 		this.setMinSize(WIDTH, HEIGHT);
+		this.getStylesheets().add(ArticleView.class.getResource("ArticleViewStyle.css").toExternalForm());
+		
+		VBox vbox = new VBox();
+		vbox.setMaxSize(WIDTH, HEIGHT);		
 
 		// Title設定
 		TextArea title = new TextArea(this.article.getTitle());
 		title.setMaxWidth(WIDTH);
 		title.setEditable(false);
 		title.setWrapText(true);
-
+/*
 		//TODO 画像のサイズ調整
 		// 画像
 		Image image = null;
@@ -49,7 +63,7 @@ public class ArticleView extends VBox {
 			e.printStackTrace();
 		}
 		ImageView iView = new ImageView(image);
-
+*/
 		// Link設定
 		Hyperlink link = new Hyperlink(this.article.getLink());
 		//TODO レイアウト確定及び調整後，linkに画像を設定
@@ -59,12 +73,13 @@ public class ArticleView extends VBox {
 		link.setMaxWidth(WIDTH);
 		link.setMaxHeight(HEIGHT / 3.0);
 		link.setWrapText(true);
-		linkAction.setLink(this.article.getLink());		
+		linkAction.setLink(this.article.getLink());
 		link.setOnAction(linkAction);
 
 		// レイアウト設定
-		this.getChildren().add(title);
-		this.getChildren().add(link);
+		vbox.getChildren().add(title);
+		vbox.getChildren().add(link);
+		this.getChildren().add(vbox);
 	}
 
 	public Article getArticle() {
