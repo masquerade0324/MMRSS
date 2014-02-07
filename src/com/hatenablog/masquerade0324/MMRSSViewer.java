@@ -1,15 +1,15 @@
 package com.hatenablog.masquerade0324;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class MMRSSViewer extends Application {
 
@@ -25,7 +25,9 @@ public class MMRSSViewer extends Application {
 	public void setArticlesPanel(ArticlesPanel articlesPanel) {
 		this.articlesPanel = articlesPanel;
 	}
+	
 
+	
 	@Override
 	public void start(Stage stage) {
 		// ArticlesPanelの設定
@@ -41,19 +43,12 @@ public class MMRSSViewer extends Application {
 		stage.setY(0);
 		stage.show();
 		
-		System.out.println("Aplication start.");
+		System.out.println("Application start.");
 		
 		manager = new ArticlesManager();
 		manager.setArticleObserver(this.getArticlesPanel());
-		manager.registerSite("http://feed.rssad.jp/rss/gigazine/rss_2.0");
-		
+		manager.registerSitesFromFile("sites.dat");
 		//manager.registerSite("http://www.itmedia.co.jp/info/rss/"); // たぶんrss1.0
-		
-		manager.registerSite("http://feeds.gizmodo.jp/rss/gizmodo/index.xml");
-		manager.registerSite("http://feed.rssad.jp/rss/engadget/rss");
-		manager.registerSite("http://www.engadget.com/rss.xml");
-		manager.registerSite("http://jp.techcrunch.com/feed/");
-		manager.registerSite("http://rss.cnn.com/rss/edition.rss");
 		manager.execute();
 		/*
 		Timeline timeline = new Timeline();
@@ -74,9 +69,7 @@ public class MMRSSViewer extends Application {
 		System.out.println("Application Ended.");
 	}
 
-
 	public void run() {
 		launch();
-
 	}
 }

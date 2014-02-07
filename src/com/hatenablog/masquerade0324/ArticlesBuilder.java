@@ -15,6 +15,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+
+/**
+ * @author masquerade0324
+ * rssから記事を作成するビルダー
+ */
 public class ArticlesBuilder {
 	public ArrayList<Article> parseRSS(String url) {
 		ArrayList<Article> articles = new ArrayList<Article>();
