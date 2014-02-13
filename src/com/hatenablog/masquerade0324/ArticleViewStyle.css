@@ -1,0 +1,7 @@
+#article-view {
+	-fx-background-color: gainsboro;
+}
+
+.label {
+	-fx-underline: true;
+}
