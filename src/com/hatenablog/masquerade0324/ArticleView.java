@@ -1,23 +1,11 @@
 package com.hatenablog.masquerade0324;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
@@ -28,11 +16,6 @@ import javafx.stage.Stage;
 public class ArticleView extends Pane {
 
 	private Article article;
-<<<<<<< HEAD
-	private static final int WIDTH = 340;
-	private static final int HEIGHT = 200;
-
-=======
 	private static final double WIDTH = 320;
 	private static final double HEIGHT = 240;
 	private LinkAction linkAction = new LinkAction();
@@ -41,7 +24,6 @@ public class ArticleView extends Pane {
 	 * Constructor
 	 * @param article
 	 */
->>>>>>> meteorakey
 	public ArticleView(Article article) {
 		this.article = article;
 		//TODO 全体のレイアウト確定

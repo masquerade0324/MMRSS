@@ -1,23 +1,14 @@
 package com.hatenablog.masquerade0324;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class MMRSSViewer extends Application {
 
 	private ArticlesPanel articlesPanel = new ArticlesPanel();
-<<<<<<< HEAD
-	private ArticlesManager manager;// = new ArticlesManager();
-=======
->>>>>>> meteorakey
+	private ArticlesManager manager;
+
 	private static final int WIDTH = 1200;
 	private static final int HEIGHT = 900;
 	
@@ -28,7 +19,7 @@ public class MMRSSViewer extends Application {
 	public void setArticlesPanel(ArticlesPanel articlesPanel) {
 		this.articlesPanel = articlesPanel;
 	}
-
+	
 	@Override
 	public void start(Stage stage) {
 		// ArticlesPanelの設定
@@ -43,20 +34,14 @@ public class MMRSSViewer extends Application {
 		stage.setX(0);
 		stage.setY(0);
 		stage.show();
-		System.out.println("Aplication start.");
-		
+		System.out.println("Application start.");
+
 		manager = new ArticlesManager();
 		manager.setArticleObserver(this.getArticlesPanel());
-		manager.registerSite("http://feed.rssad.jp/rss/gigazine/rss_2.0");
-		
+		manager.registerSitesFromFile("sites.dat");
 		//manager.registerSite("http://www.itmedia.co.jp/info/rss/"); // たぶんrss1.0
-		
-		manager.registerSite("http://feeds.gizmodo.jp/rss/gizmodo/index.xml");
-		manager.registerSite("http://feed.rssad.jp/rss/engadget/rss");
-		manager.registerSite("http://www.engadget.com/rss.xml");
-		manager.registerSite("http://jp.techcrunch.com/feed/");
-		manager.registerSite("http://rss.cnn.com/rss/edition.rss");
 		manager.execute();
+		System.out.println("ok");
 		/*
 		Timeline timeline = new Timeline();
 		timeline.setCycleCount(Timeline.INDEFINITE);
@@ -75,6 +60,7 @@ public class MMRSSViewer extends Application {
 	public void stop() { // 終了時に呼び出し
 		System.out.println("Application Ended.");
 	}
+
 	public void run() {
 		launch();
 	}

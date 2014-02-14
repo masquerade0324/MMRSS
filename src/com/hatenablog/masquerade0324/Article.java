@@ -2,6 +2,11 @@ package com.hatenablog.masquerade0324;
 
 import java.util.Calendar;
 
+
+/**
+ * @author toshimitsu
+ *　記事
+ */
 public class Article {
 	private String title;
 	private String date;
